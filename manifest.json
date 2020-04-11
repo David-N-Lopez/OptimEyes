@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Optimeyes",
+  "description": "train AI to end procrastination!",
+  "version": "0.1",
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "unlimitedStorage"
+   ]
+}
