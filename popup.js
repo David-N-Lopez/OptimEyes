@@ -18,9 +18,10 @@
 
 function setupCam() {
   navigator.mediaDevices.getUserMedia({
-    video: true
+  video: {frameRate: {ideal: 5, max: 10}}
   }).then(mediaStream => {
     document.querySelector('#webcamVideo').srcObject = mediaStream;
+    
   }).catch((error) => {
     console.warn(error);
   });
