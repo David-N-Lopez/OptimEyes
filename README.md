@@ -4,7 +4,7 @@
 
 ### How to install and configure the extension
 
-1. Install the extension from the Chrome store.
+1. Install the extension from the Chrome store...
 1. Upon initial installation, the extension will ask for permission to access
 the webcam. After granting permission, you can close the welcome page.
    * Note  that all the images taken will be viewed by a group of students 
