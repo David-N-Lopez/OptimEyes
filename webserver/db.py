@@ -5,6 +5,8 @@ from sqlite3 import dbapi2 as sqlite3
 from flask import current_app, g
 from flask.cli import with_appcontext
 
+from .util import create_dir
+
 
 def init_app(app):
     app.teardown_appcontext(close_db)
@@ -117,7 +119,10 @@ def _sync_database_command():
 
 
 def init_db(exclude=[]):
-    """Initializes the database."""
+    """
+    Initializes the database and creates directory where datasets are stored (`DATA_DIR` app configuration option)
+    if one does not exist already.
+    """
     db = get_db()
     dir = os.path.join(current_app.root_path, 'schemas')
     test_dir = os.path.join(current_app.root_path, '../tests/schemas')
@@ -144,6 +149,11 @@ def init_db(exclude=[]):
     run_schemas(dir)
     if current_app.config.get('TESTING', False) and os.path.exists(test_dir):
         run_schemas(test_dir)
+
+    data_dir = current_app.config.get('DATA_DIR')
+    if not os.path.exists(data_dir):
+        print('creating data set directory "{:s}" ...'.format(data_dir))
+        create_dir(data_dir)
 
 
 @click.command('initdb')
