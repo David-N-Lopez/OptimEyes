@@ -13,7 +13,7 @@ Makefile
 # Edit at https://www.gitignore.io/?templates=pycharm
 
 ### PyCharm ###
-.idea/*
+.idea
 
 # User-specific stuff
 .idea/**/workspace.xml
