@@ -50,3 +50,5 @@ Makefile
 *.swp
 *.swo
 
+# dataset
+webserver/data
